@@ -1,0 +1,23 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: hr-system-backend
+    runtime: node
+    region: oregon # Change to your preferred region (oregon, ohio, frankfurt, singapore, etc.)
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000 # Render's default port (will be auto-assigned)
+      # Add these secrets in the Render Dashboard (https://dashboard.render.com)
+      # DO NOT commit sensitive values to git!
+      - key: MONGODB_URI
+        sync: false # Set this as a secret in Render Dashboard
+      - key: JWT_SECRET
+        sync: false # Set this as a secret in Render Dashboard
+      - key: JWT_EXPIRES_IN
+        value: 24h
+    healthCheckPath: / # Optional: Add a health check endpoint
+    autoDeploy: true # Auto-deploy on git push

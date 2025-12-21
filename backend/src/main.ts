@@ -22,7 +22,8 @@ async function bootstrap() {
     allowedHeaders: ['Content-Type', 'Authorization'],
   });
 
-  await app.listen(4000);
-  console.log('Nest running on http://localhost:4000  🚀');
+  const port = process.env.PORT || 4000;
+  await app.listen(port);
+  console.log(`Nest running on port ${port} 🚀`);
 }
 bootstrap();
