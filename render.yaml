@@ -9,8 +9,7 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000 # Render's default port (will be auto-assigned)
+      # PORT is automatically set by Render - don't override it
       # Add these secrets in the Render Dashboard (https://dashboard.render.com)
       # DO NOT commit sensitive values to git!
       - key: MONGODB_URI
