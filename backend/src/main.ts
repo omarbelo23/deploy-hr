@@ -15,7 +15,7 @@ async function bootstrap() {
 
   // ★ allow frontend origin + credentials (cookies)
   app.enableCors({
-    origin: ['http://localhost:3000', 'https://rry-hr-system.netlify.app'],
+    origin: ['http://localhost:3000', 'https://rry-hr-system.netlify.app', "https://euphonious-cupcake-042e20.netlify.app"],
 
     credentials: true,
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
